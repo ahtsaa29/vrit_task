@@ -16,7 +16,7 @@ class DomainSave {
   }
 
   setDomain(String newDomain) async {
-    log("$newDomain");
+    log(newDomain);
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("domain", newDomain);
     AppInstaceController().updateDomain(domain);

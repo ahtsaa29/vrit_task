@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:vrit_task/%20common/shared_prefs.dart';
 import 'package:vrit_task/api/tiny_url.dart';
-import 'package:vrit_task/views/settings.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

@@ -25,14 +25,15 @@ class _SettingsState extends State<Settings> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: Text("Settings"),
+        title: const Text("Settings"),
       ),
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             ListTile(
@@ -56,9 +57,9 @@ class _SettingsState extends State<Settings> {
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                child: Text("Change"),
+                child: const Text("Change"),
                 onPressed: () {
-                  log("${domainController.text}");
+                  log(domainController.text);
                   domain.setDomain(domainController.text);
                   AppInstaceController().updateDomain(domainController.text);
                   Get.back();
