@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vrit_task/%20common/shared_prefs.dart';
@@ -12,11 +14,14 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   TextEditingController domainController = TextEditingController();
+  initfunction() async {
+    await domain.getDomain();
+    domainController.text = AppInstaceController().domain ?? domain.domain;
+  }
 
   @override
   void initState() {
-    domain.getDomain();
-    domainController.text = AppInstaceController().domain ?? "tinyurl.com";
+    initfunction();
     super.initState();
   }
 
@@ -53,7 +58,9 @@ class _SettingsState extends State<Settings> {
               child: TextButton(
                 child: Text("Change"),
                 onPressed: () {
+                  log("${domainController.text}");
                   domain.setDomain(domainController.text);
+                  AppInstaceController().updateDomain(domainController.text);
                   Get.back();
                 },
               ),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vrit_task/controllers/app_instance_controller.dart';
 
@@ -14,6 +16,7 @@ class DomainSave {
   }
 
   setDomain(String newDomain) async {
+    log("$newDomain");
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("domain", newDomain);
     AppInstaceController().updateDomain(domain);

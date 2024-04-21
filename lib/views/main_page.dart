@@ -30,14 +30,14 @@ class _MainPageState extends State<MainPage> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () => Get.to(() => const Settings()),
-              icon: const Icon(
-                Icons.settings,
-                color: Colors.white,
-              ))
-        ],
+        // actions: [
+        //   IconButton(
+        //       onPressed: () => Get.to(() => const Settings()),
+        //       icon: const Icon(
+        //         Icons.settings,
+        //         color: Colors.white,
+        //       ))
+        // ],
         backgroundColor: Colors.deepPurple,
         title: const Text(
           "TinyUrl Url Shortener",
@@ -75,7 +75,6 @@ class _MainPageState extends State<MainPage> {
                     } else if (urlController.text.startsWith("https://")) {
                       log("starts");
                       shortenedUrl = await urlApi.getUrl(urlController.text);
-
                       setState(() {
                         final qrCode = QrCode(
                           8,
